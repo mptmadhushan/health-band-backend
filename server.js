@@ -5,11 +5,6 @@ const db = require("./app/models");
 const Role = db.role;
 
 const app = express();
-require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
-require("./app/routes/SPO2.routes")(app);
-require("./app/routes/blood.routes")(app);
-require("./app/routes/glucose.routes")(app);
 
 var corsOptions = {
   origin: "http://localhost:8088",
@@ -18,12 +13,17 @@ app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
+require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
+require("./app/routes/SPO2.routes")(app);
+require("./app/routes/blood.routes")(app);
+require("./app/routes/glucose.routes")(app);
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("Drop and Resync Db");
-  initial();
+  // initial();
 });
 function initial() {
   Role.create({
