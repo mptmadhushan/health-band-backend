@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const glucose = sequelize.define("glucose", {
+  const activity = sequelize.define("activity", {
     bicycle: {
       type: DataTypes.STRING,
     },
@@ -11,5 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  return glucose;
+  return activity;
 };
