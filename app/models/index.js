@@ -24,6 +24,7 @@ db.role = require("./role.model.js")(sequelize, Sequelize);
 db.SPO2 = require("./SPO2.model")(sequelize, Sequelize);
 db.blood = require("./blood.model")(sequelize, Sequelize);
 db.glucose = require("./glucose.model")(sequelize, Sequelize);
+db.activity = require("./activity.model")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",

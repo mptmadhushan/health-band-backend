@@ -18,6 +18,7 @@ require("./app/routes/user.routes")(app);
 require("./app/routes/SPO2.routes")(app);
 require("./app/routes/blood.routes")(app);
 require("./app/routes/glucose.routes")(app);
+require("./app/routes/activity.routes")(app);
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
